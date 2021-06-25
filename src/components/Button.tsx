@@ -1,28 +1,16 @@
-import { useState } from "react";
+import { ButtonHTMLAttributes } from 'react';
 
-type ButtonProps = {
-    text?: string;
-    numb?: number;
-    children?: string;
-}
+import '../styles/button.scss';
 
-export function Button(props: ButtonProps) {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+    isOutlined?: boolean
+};
+
+export function Button({ isOutlined = false, ...props }: ButtonProps) {
     return (
-        <button>{props.text || props.numb || props.children || 'Default'}</button>
-    )
-}
-
-export function ButtonPlus() {
-    const [counter, setCounter] = useState(0);
-
-    function increment() {
-        setCounter(counter + 1);
-        console.log(counter);
-    }
-
-    return (
-        <button onClick={increment} >
-            {counter}
-        </button>
+        <button
+            className={`button ${isOutlined ? 'outlined' : ''}`}
+            {...props}
+        />
     )
 }

@@ -1,14 +1,29 @@
-import { Button, ButtonPlus } from "./components/Button";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { NewRoom } from "./pages/NewRoom";
+import { Home } from "./pages/Home";
+import { Room } from './pages/Room';
+
+import { AuthContextProvider } from './contexts/AuthContext';
+import { AdminRoom } from './pages/AdminRoom';
+
 
 function App() {
+
   return (
-    <div>
-      <Button text="botão 1" />
-      <Button numb={1} />
-      <Button> Olá mundo </Button>
-      <ButtonPlus />
-    </div>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/rooms/new" exact component={NewRoom} />
+          <Route path="/rooms/:id" component={Room} />
+
+          <Route path="/admin/rooms/:id" component={AdminRoom} />
+        </Switch>
+      </AuthContextProvider>
+    </BrowserRouter>
   );
+
 }
 
 export default App;
