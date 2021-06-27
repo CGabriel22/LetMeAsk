@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import illustrationImg from '../assets/images/illustration.svg';
+import illustrationImg from '../assets/images/Messages.png';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
@@ -51,7 +51,7 @@ export function Home() {
         <div id="page-auth">
             <aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
-                <strong>Crie salas de Q&amp;A ao-vivo</strong>
+                <strong>Crie salas de perguntas e respostas ao-vivo</strong>
                 <p>Tire as dúvidas da sua audiência em tempo real</p>
             </aside>
             <main>
@@ -61,7 +61,7 @@ export function Home() {
                         <img src={googleIconImg} alt="logo do Google" />
                         Crie sua sala com o Google
                     </button>
-                    <div className="separator" >ou entre em uma sala</div>
+                    <div className="separator" >ou</div>
                     <form onSubmit={handleJoinRoom}>
                         <input
                             type="text"
